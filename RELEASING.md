@@ -2,9 +2,9 @@
 
 ## 1. Prepare the version
 
-- Update `version` in [pyproject.toml](/Users/yin/Documents_local/Github/DualKey/pyproject.toml).
-- Move release notes from `Unreleased` into a dated version section in [CHANGELOG.md](/Users/yin/Documents_local/Github/DualKey/CHANGELOG.md).
-- Open the release checklist issue from [`.github/ISSUE_TEMPLATE/release-checklist.md`](/Users/yin/Documents_local/Github/DualKey/.github/ISSUE_TEMPLATE/release-checklist.md).
+- Update `version` in [pyproject.toml](./pyproject.toml).
+- Move release notes from `Unreleased` into a dated version section in [CHANGELOG.md](./CHANGELOG.md).
+- Open the release checklist issue from [`.github/ISSUE_TEMPLATE/release-checklist.md`](./.github/ISSUE_TEMPLATE/release-checklist.md).
 
 ## 2. Run local release checks
 

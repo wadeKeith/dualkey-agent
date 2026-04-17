@@ -6,7 +6,13 @@ The format is based on Keep a Changelog and this project follows Semantic Versio
 
 ## [Unreleased]
 
-- No unreleased changes yet.
+### Added
+
+- README badges and first-screen demo placeholders for the public repository.
+
+### Changed
+
+- Replaced local absolute documentation links with GitHub-safe relative links.
 
 ## [0.1.0] - 2026-04-17
 

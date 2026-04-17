@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" fill="none">
+  <rect width="960" height="560" rx="28" fill="#0B1220"/>
+  <rect x="32" y="32" width="896" height="496" rx="24" fill="#111827" stroke="#1F2937"/>
+  <rect x="68" y="72" width="380" height="52" rx="12" fill="#0F766E"/>
+  <text x="92" y="106" fill="#ECFEFF" font-size="28" font-family="Arial, sans-serif" font-weight="700">Coding Agent Approval</text>
+  <text x="68" y="164" fill="#D1D5DB" font-size="24" font-family="Arial, sans-serif">Scenario: edit .env + git push origin main</text>
+  <rect x="68" y="206" width="398" height="250" rx="18" fill="#0B1220" stroke="#374151"/>
+  <text x="92" y="246" fill="#93C5FD" font-size="22" font-family="Courier New, monospace">diff --git a/.env b/.env</text>
+  <text x="92" y="286" fill="#FCA5A5" font-size="22" font-family="Courier New, monospace">- API_KEY=old-secret</text>
+  <text x="92" y="326" fill="#86EFAC" font-size="22" font-family="Courier New, monospace">+ API_KEY=***</text>
+  <text x="92" y="388" fill="#FDE68A" font-size="22" font-family="Courier New, monospace">$ git push origin main</text>
+  <rect x="516" y="206" width="336" height="250" rx="18" fill="#101826" stroke="#14B8A6" stroke-width="2"/>
+  <text x="544" y="246" fill="#CCFBF1" font-size="24" font-family="Arial, sans-serif" font-weight="700">Second key required</text>
+  <text x="544" y="292" fill="#D1D5DB" font-size="20" font-family="Arial, sans-serif">Rule: ask before protected branch push</text>
+  <text x="544" y="332" fill="#D1D5DB" font-size="20" font-family="Arial, sans-serif">Preview: file diff + command + target branch</text>
+  <rect x="544" y="374" width="120" height="44" rx="10" fill="#DC2626"/>
+  <text x="581" y="403" fill="#FFF7ED" font-size="20" font-family="Arial, sans-serif" font-weight="700">Reject</text>
+  <rect x="684" y="374" width="140" height="44" rx="10" fill="#0F766E"/>
+  <text x="726" y="403" fill="#ECFEFF" font-size="20" font-family="Arial, sans-serif" font-weight="700">Approve</text>
+  <text x="68" y="500" fill="#6EE7B7" font-size="20" font-family="Arial, sans-serif">GIF placeholder: patch preview, approval dialog, signed receipt</text>
+</svg>

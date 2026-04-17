@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" fill="none">
+  <rect width="960" height="560" rx="28" fill="#1C1917"/>
+  <rect x="32" y="32" width="896" height="496" rx="24" fill="#292524" stroke="#44403C"/>
+  <rect x="68" y="72" width="416" height="52" rx="12" fill="#B45309"/>
+  <text x="92" y="106" fill="#FFF7ED" font-size="28" font-family="Arial, sans-serif" font-weight="700">Browser Checkout Approval</text>
+  <text x="68" y="164" fill="#F5F5F4" font-size="24" font-family="Arial, sans-serif">Scenario: browser agent reaches the final Pay now click</text>
+  <rect x="68" y="206" width="420" height="250" rx="18" fill="#FFFBEB" stroke="#F59E0B"/>
+  <text x="92" y="252" fill="#92400E" font-size="22" font-family="Arial, sans-serif" font-weight="700">Checkout Review</text>
+  <text x="92" y="296" fill="#78350F" font-size="20" font-family="Arial, sans-serif">Item total: $149.00</text>
+  <text x="92" y="332" fill="#78350F" font-size="20" font-family="Arial, sans-serif">Ship to: 123 Demo Street</text>
+  <text x="92" y="368" fill="#78350F" font-size="20" font-family="Arial, sans-serif">Selector: button#pay-now</text>
+  <rect x="92" y="396" width="180" height="38" rx="10" fill="#D97706"/>
+  <text x="132" y="421" fill="#FFF7ED" font-size="18" font-family="Arial, sans-serif" font-weight="700">Pay now</text>
+  <rect x="528" y="206" width="324" height="250" rx="18" fill="#111827" stroke="#F59E0B" stroke-width="2"/>
+  <text x="556" y="246" fill="#FEF3C7" font-size="24" font-family="Arial, sans-serif" font-weight="700">Approval inbox</text>
+  <text x="556" y="292" fill="#E7E5E4" font-size="20" font-family="Arial, sans-serif">Risk tags: payment, browser, open-world</text>
+  <text x="556" y="332" fill="#E7E5E4" font-size="20" font-family="Arial, sans-serif">Preview: amount, address, selector, page URL</text>
+  <rect x="556" y="374" width="126" height="44" rx="10" fill="#B91C1C"/>
+  <text x="594" y="403" fill="#FEF2F2" font-size="20" font-family="Arial, sans-serif" font-weight="700">Block</text>
+  <rect x="704" y="374" width="120" height="44" rx="10" fill="#CA8A04"/>
+  <text x="739" y="403" fill="#FFFBEB" font-size="20" font-family="Arial, sans-serif" font-weight="700">Allow</text>
+  <text x="68" y="500" fill="#FCD34D" font-size="20" font-family="Arial, sans-serif">GIF placeholder: checkout form, approval modal, receipt timeline</text>
+</svg>

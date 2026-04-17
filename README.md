@@ -1,10 +1,23 @@
 # DualKey
 
+[![CI](https://github.com/wadeKeith/dualkey-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/wadeKeith/dualkey-agent/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/wadeKeith/dualkey-agent)](https://github.com/wadeKeith/dualkey-agent/releases)
+[![License](https://img.shields.io/github/license/wadeKeith/dualkey-agent)](./LICENSE)
+[![Python](https://img.shields.io/badge/python-3.11%2B-0f766e)](./pyproject.toml)
+
 No dangerous agent action without a second key.
 
 Add approvals, policy, and receipts to any AI agent in 10 lines.
 
 DualKey is an execution authorization layer for AI agents. It sits between an agent deciding to do something and that action actually running. The goal is simple: standardize risky actions, evaluate them with deterministic policy, require a second key when needed, and leave behind tamper-evident receipts.
+
+## Demos
+
+GIFs are still being recorded. The cards below mark the three public-facing demos the repo is built around:
+
+| Coding agent approval | Browser checkout approval | MCP tool governance |
+| --- | --- | --- |
+| [![Coding agent approval](docs/assets/demo-coding-gate.svg)](./docs/assets/demo-coding-gate.svg) | [![Browser checkout approval](docs/assets/demo-browser-checkout.svg)](./docs/assets/demo-browser-checkout.svg) | [![MCP tool governance](docs/assets/demo-mcp-proxy.svg)](./docs/assets/demo-mcp-proxy.svg) |
 
 ## Why this exists
 
@@ -24,12 +37,12 @@ DualKey focuses on the missing layer:
 
 ## Project docs
 
-- [LICENSE](/Users/yin/Documents_local/Github/DualKey/LICENSE)
-- [CHANGELOG.md](/Users/yin/Documents_local/Github/DualKey/CHANGELOG.md)
-- [CONTRIBUTING.md](/Users/yin/Documents_local/Github/DualKey/CONTRIBUTING.md)
-- [SECURITY.md](/Users/yin/Documents_local/Github/DualKey/SECURITY.md)
-- [CODE_OF_CONDUCT.md](/Users/yin/Documents_local/Github/DualKey/CODE_OF_CONDUCT.md)
-- [RELEASING.md](/Users/yin/Documents_local/Github/DualKey/RELEASING.md)
+- [LICENSE](./LICENSE)
+- [CHANGELOG.md](./CHANGELOG.md)
+- [CONTRIBUTING.md](./CONTRIBUTING.md)
+- [SECURITY.md](./SECURITY.md)
+- [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
+- [RELEASING.md](./RELEASING.md)
 
 ## What the MVP ships
 
@@ -300,7 +313,7 @@ CI now also runs `scripts/mcp_proxy_smoke.py`, which drives the installed `dualk
 - let Claude keep the native prompt when policy resolves to `ask`
 - append receipts for `PostToolUse`, `PostToolUseFailure`, and `PermissionDenied`
 
-See [docs/claude-code-hook.md](/Users/yin/Documents_local/Github/DualKey/docs/claude-code-hook.md) for setup and [docs/policy-language.md](/Users/yin/Documents_local/Github/DualKey/docs/policy-language.md) for the expanded matcher language.
+See [docs/claude-code-hook.md](./docs/claude-code-hook.md) for setup and [docs/policy-language.md](./docs/policy-language.md) for the expanded matcher language.
 CI now also runs `scripts/claude_hook_smoke.py`, which exercises the installed `dualkey-claude-hook` binary with both deny and allow payloads.
 After the core and adapter jobs pass, CI also renders and uploads a `release-gate` Markdown artifact summarizing every enforced check.
 
@@ -314,7 +327,7 @@ After the core and adapter jobs pass, CI also renders and uploads a `release-gat
 
 This keeps the integration narrow: no fork of `browser-use`, no new planner, just a control layer at the real action surface.
 
-See [docs/browser-use-adapter.md](/Users/yin/Documents_local/Github/DualKey/docs/browser-use-adapter.md) for setup and [policy/examples/browser-use.yaml](/Users/yin/Documents_local/Github/DualKey/policy/examples/browser-use.yaml) for a starter policy.
+See [docs/browser-use-adapter.md](./docs/browser-use-adapter.md) for setup and [policy/examples/browser-use.yaml](./policy/examples/browser-use.yaml) for a starter policy.
 
 ## OpenHands Adapter
 
@@ -341,7 +354,7 @@ python3 -m pytest -q tests/test_openhands_sdk_integration.py
 
 Because upstream `openhands-sdk` currently requires Python 3.12+, the OpenHands compatibility job in CI runs on Python 3.12 even though the core package still supports Python 3.11+.
 
-See [docs/openhands-adapter.md](/Users/yin/Documents_local/Github/DualKey/docs/openhands-adapter.md) for setup and [policy/examples/openhands.yaml](/Users/yin/Documents_local/Github/DualKey/policy/examples/openhands.yaml) for a starter policy.
+See [docs/openhands-adapter.md](./docs/openhands-adapter.md) for setup and [policy/examples/openhands.yaml](./policy/examples/openhands.yaml) for a starter policy.
 
 ## First demos
 

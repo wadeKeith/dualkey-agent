@@ -2,9 +2,9 @@
 
 ## Before you start
 
-- Read [README.md](/Users/yin/Documents_local/Github/DualKey/README.md) for the project shape and supported adapters.
-- Read [SECURITY.md](/Users/yin/Documents_local/Github/DualKey/SECURITY.md) before opening issues about vulnerabilities or unsafe agent behavior.
-- If your change affects release criteria, check [scripts/release_gate.py](/Users/yin/Documents_local/Github/DualKey/scripts/release_gate.py).
+- Read [README.md](./README.md) for the project shape and supported adapters.
+- Read [SECURITY.md](./SECURITY.md) before opening issues about vulnerabilities or unsafe agent behavior.
+- If your change affects release criteria, check [scripts/release_gate.py](./scripts/release_gate.py).
 
 ## Development setup
 
@@ -80,6 +80,6 @@ Changes to redaction, verification, replay, approval behavior, or adapter execut
 
 If your change affects release readiness, update:
 
-- [CHANGELOG.md](/Users/yin/Documents_local/Github/DualKey/CHANGELOG.md)
-- [scripts/release_gate.py](/Users/yin/Documents_local/Github/DualKey/scripts/release_gate.py)
-- [`.github/ISSUE_TEMPLATE/release-checklist.md`](/Users/yin/Documents_local/Github/DualKey/.github/ISSUE_TEMPLATE/release-checklist.md)
+- [CHANGELOG.md](./CHANGELOG.md)
+- [scripts/release_gate.py](./scripts/release_gate.py)
+- [`.github/ISSUE_TEMPLATE/release-checklist.md`](./.github/ISSUE_TEMPLATE/release-checklist.md)

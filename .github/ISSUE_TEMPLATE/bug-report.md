@@ -37,4 +37,4 @@ What actually happened?
 - Relevant policy snippet:
 - Relevant command or payload:
 
-If the bug may expose secrets, approvals, execution bypasses, or verification weaknesses, stop here and follow [SECURITY.md](/Users/yin/Documents_local/Github/DualKey/SECURITY.md) instead of filing publicly.
+If the bug may expose secrets, approvals, execution bypasses, or verification weaknesses, stop here and follow [SECURITY.md](https://github.com/wadeKeith/dualkey-agent/blob/main/SECURITY.md) instead of filing publicly.

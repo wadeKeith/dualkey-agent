@@ -141,7 +141,7 @@ By default, OpenHands receipts still go to `.dualkey/openhands-receipts.jsonl`. 
 
 ## Starter policy
 
-The included [policy/examples/openhands.yaml](/Users/yin/Documents_local/Github/DualKey/policy/examples/openhands.yaml) demonstrates:
+The included [policy/examples/openhands.yaml](../policy/examples/openhands.yaml) demonstrates:
 
 - automatic allow for read-only git actions
 - deny for secret file writes
