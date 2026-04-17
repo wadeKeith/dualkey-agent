@@ -1,0 +1,44 @@
+cases:
+  - id: docs_read_allowed
+    description: read-only docs access falls through to allow
+    action:
+      actor: openhands
+      surface: shell
+      tool: filesystem.read
+      intent: read
+      target: /repo/docs/README.md
+      args:
+        path: /repo/docs/README.md
+    expect:
+      decision: allow
+      rule_id: docs_reads_are_safe
+
+  - id: git_push_requires_second_key
+    description: push to main should stop on ask
+    action:
+      actor: openhands
+      surface: shell
+      tool: shell.exec
+      intent: execute
+      args:
+        command: git push origin main
+    expect:
+      decision: ask
+      rule_id: git_push_requires_second_key
+
+  - id: prod_write_denied
+    description: writes tagged as prod are denied
+    action:
+      actor: openhands
+      surface: shell
+      tool: filesystem.write
+      intent: write
+      target: /repo/.env
+      args:
+        path: /repo/.env
+      risk:
+        - prod
+        - secrets
+    expect:
+      decision: deny
+      rule_id: prod_and_secret_writes_are_denied

@@ -1,0 +1,36 @@
+default_decision: ask
+rules:
+  - id: docs_reads_are_safe
+    when:
+      intent: read
+      target_prefix: /repo/docs/
+    decision: allow
+
+  - id: git_push_requires_second_key
+    when:
+      tool: shell.exec
+      command_matches:
+        - git push
+    decision: ask
+
+  - id: prod_and_secret_writes_are_denied
+    when:
+      intent: write
+      tags_any:
+        - secrets
+        - prod
+    decision: deny
+
+  - id: payment_click_requires_second_key
+    when:
+      tool: browser.click
+      tags_any:
+        - payment
+    decision: ask
+
+  - id: destructive_shell_is_denied
+    when:
+      tool: shell.exec
+      command_matches:
+        - rm -rf
+    decision: deny

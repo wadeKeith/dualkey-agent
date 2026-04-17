@@ -1,0 +1,42 @@
+cases:
+  - id: docs_navigation_allowed
+    description: docs navigation should auto-allow
+    action:
+      actor: browser-use
+      surface: browser
+      tool: go_to_url
+      intent: navigate
+      args:
+        url: https://docs.browser-use.com/customize/agent-settings
+    expect:
+      decision: allow
+      rule_id: safe_docs_navigation
+
+  - id: checkout_click_asks
+    description: clicking pay on checkout should ask
+    action:
+      actor: browser-use
+      surface: browser
+      tool: click
+      intent: click
+      target: button#pay-now
+      args:
+        selector: button#pay-now
+      metadata:
+        page_url: https://shop.example.com/checkout/review
+    expect:
+      decision: ask
+      rule_id: checkout_click_requires_second_key
+
+  - id: evaluate_asks
+    description: evaluate should always ask
+    action:
+      actor: browser-use
+      surface: browser
+      tool: evaluate
+      intent: execute
+      args:
+        script: return window.location.href
+    expect:
+      decision: ask
+      rule_id: script_execution_requires_second_key

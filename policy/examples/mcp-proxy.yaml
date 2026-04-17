@@ -1,0 +1,36 @@
+default_decision: ask
+rules:
+  - id: readonly_tools_are_allowed
+    when:
+      intent: read
+    decision: allow
+
+  - id: env_like_targets_are_denied
+    when:
+      target_glob:
+        - "*/.env"
+        - "*/.env.*"
+        - "*/.ssh/*"
+    decision: deny
+
+  - id: secret_and_critical_targets_are_denied
+    when:
+      tags_any:
+        - secrets
+        - critical-file
+    decision: deny
+
+  - id: payment_selectors_require_approval
+    when:
+      tool_glob: "browser.*"
+      arg_regex:
+        selector: "(?i)(pay|checkout|submit)"
+    decision: ask
+
+  - id: destructive_and_open_world_tools_require_approval
+    when:
+      tags_any:
+        - destructive
+        - open-world
+        - payment
+    decision: ask

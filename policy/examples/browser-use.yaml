@@ -1,0 +1,32 @@
+default_decision: ask
+rules:
+  - id: safe_docs_navigation
+    when:
+      actor: browser-use
+      intent: navigate
+      arg_glob:
+        url: "https://docs.browser-use.com/*"
+    decision: allow
+
+  - id: secret_file_access_is_denied
+    when:
+      actor: browser-use
+      tool_in: ["write_file", "replace_file", "upload_file"]
+      target_glob: ["*.env", "*/.ssh/*", "*id_rsa*"]
+    decision: deny
+
+  - id: checkout_click_requires_second_key
+    when:
+      actor: browser-use
+      tool_glob: "click"
+      metadata_glob:
+        page_url: "https://shop.example.com/checkout*"
+      arg_glob:
+        selector: "*pay*"
+    decision: ask
+
+  - id: script_execution_requires_second_key
+    when:
+      actor: browser-use
+      tool: evaluate
+    decision: ask

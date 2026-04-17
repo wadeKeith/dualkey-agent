@@ -1,0 +1,41 @@
+cases:
+  - id: readonly_allowed
+    description: read-only MCP tools should pass through
+    action:
+      actor: claude-code
+      surface: mcp
+      tool: filesystem.read
+      intent: read
+      target: /repo/docs/guide.md
+      args:
+        path: /repo/docs/guide.md
+    expect:
+      decision: allow
+      rule_id: readonly_tools_are_allowed
+
+  - id: env_target_denied
+    description: env-like targets should be denied
+    action:
+      actor: claude-code
+      surface: mcp
+      tool: filesystem.write
+      intent: write
+      target: /repo/.env
+      args:
+        path: /repo/.env
+    expect:
+      decision: deny
+      rule_id: env_like_targets_are_denied
+
+  - id: payment_selector_asks
+    description: payment selectors should ask
+    action:
+      actor: browser-use
+      surface: mcp
+      tool: browser.click
+      intent: click
+      args:
+        selector: button[data-action='Pay now']
+    expect:
+      decision: ask
+      rule_id: payment_selectors_require_approval

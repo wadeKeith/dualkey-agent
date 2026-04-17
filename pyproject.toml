@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dualkey-agent"
+version = "0.1.0"
+description = "Approvals, deterministic policy, and signed receipts for AI agent actions."
+readme = "README.md"
+authors = [{name = "DualKey contributors"}]
+license = {file = "LICENSE"}
+requires-python = ">=3.11"
+keywords = ["agents", "approval", "mcp", "security", "audit", "governance"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = ["PyYAML>=6.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.2", "build>=1.2", "twine>=5.1"]
+browser-use = ["browser-use>=0.12,<0.13"]
+openhands = ['openhands-sdk>=1.16,<1.17; python_version >= "3.12"']
+
+[project.scripts]
+dualkey-demo = "dualkey.demo:main"
+dualkey-mcp-proxy = "dualkey.mcp_proxy:main"
+dualkey-claude-hook = "dualkey.claude_hook:main"
+dualkey-receipts = "dualkey.receipts:main"
+dualkey-replay = "dualkey.replay:main"
+dualkey-policy = "dualkey.policy_cli:main"
+dualkey-verify = "dualkey.verify:main"
+
+[tool.setuptools]
+package-dir = {"" = "sdk/python/src"}
+license-files = ["LICENSE"]
+
+[tool.setuptools.packages.find]
+where = ["sdk/python/src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["sdk/python/src"]
+testpaths = ["tests"]
+markers = [
+    "browser_use_integration: requires the real browser-use dependency set",
+    "openhands_integration: requires the real openhands-sdk dependency set",
+]

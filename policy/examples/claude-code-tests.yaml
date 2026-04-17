@@ -1,0 +1,46 @@
+cases:
+  - id: pretool_read_allowed
+    description: Claude Code read tools should auto-allow during PreToolUse
+    action:
+      actor: claude-code
+      surface: claude-code
+      tool: Read
+      intent: read
+      target: /repo/README.md
+      args:
+        file_path: /repo/README.md
+      metadata:
+        hook_event_name: PreToolUse
+    expect:
+      decision: allow
+      rule_id: claude_reads_are_allowed
+
+  - id: destructive_bash_denied
+    description: rm -rf should be denied outright
+    action:
+      actor: claude-code
+      surface: claude-code
+      tool: Bash
+      intent: execute
+      args:
+        command: rm -rf build
+      metadata:
+        hook_event_name: PermissionRequest
+    expect:
+      decision: deny
+      rule_id: destructive_bash_is_denied
+
+  - id: external_webfetch_asks
+    description: non-trusted WebFetch requests should ask
+    action:
+      actor: claude-code
+      surface: claude-code
+      tool: WebFetch
+      intent: read
+      args:
+        url: https://news.ycombinator.com
+      metadata:
+        hook_event_name: PermissionRequest
+    expect:
+      decision: ask
+      rule_id: external_web_access_requires_second_key

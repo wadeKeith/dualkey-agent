@@ -1,0 +1,57 @@
+default_decision: ask
+rules:
+  - id: claude_reads_are_allowed
+    when:
+      tool_glob:
+        - Read
+        - Grep
+        - Glob
+        - LS
+      metadata_equals:
+        hook_event_name: PreToolUse
+    decision: allow
+
+  - id: secret_like_files_are_denied
+    when:
+      tool_glob:
+        - Write
+        - Edit
+        - MultiEdit
+        - NotebookEdit
+      target_glob:
+        - "*/.env"
+        - "*/.env.*"
+        - "*/.ssh/*"
+    decision: deny
+
+  - id: destructive_bash_is_denied
+    when:
+      tool: Bash
+      arg_regex:
+        command: "(^|\\s)rm\\s+-rf(\\s|$)"
+    decision: deny
+
+  - id: pushing_main_requires_second_key
+    when:
+      tool: Bash
+      metadata_equals:
+        hook_event_name: PermissionRequest
+      arg_regex:
+        command: "(^|\\s)git\\s+push\\s+\\S+\\s+main(\\s|$)"
+    decision: ask
+
+  - id: trusted_webfetch_can_be_auto_allowed
+    when:
+      tool: WebFetch
+      metadata_equals:
+        hook_event_name: PermissionRequest
+      arg_regex:
+        url: "^https://example\\.com/?$"
+    decision: allow
+
+  - id: external_web_access_requires_second_key
+    when:
+      tool_glob: "Web*"
+      metadata_equals:
+        hook_event_name: PermissionRequest
+    decision: ask

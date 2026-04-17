@@ -1,0 +1,40 @@
+cases:
+  - id: git_status_allowed
+    description: read-only git commands should allow
+    action:
+      actor: openhands
+      surface: git
+      tool: TerminalTool
+      intent: read
+      args:
+        command: git status --short
+    expect:
+      decision: allow
+      rule_id: safe_git_reads_are_allowed
+
+  - id: destructive_shell_denied
+    description: rm -rf should be denied
+    action:
+      actor: openhands
+      surface: shell
+      tool: TerminalTool
+      intent: execute
+      args:
+        command: rm -rf dist
+    expect:
+      decision: deny
+      rule_id: destructive_shell_is_denied
+
+  - id: file_edit_asks
+    description: FileEditor create should require approval
+    action:
+      actor: openhands
+      surface: file
+      tool: WorkspaceFileEditorTool
+      intent: write
+      target: /repo/src/app.py
+      args:
+        command: create
+    expect:
+      decision: ask
+      rule_id: non_view_file_edits_require_second_key

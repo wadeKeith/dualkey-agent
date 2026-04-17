@@ -1,0 +1,42 @@
+default_decision: ask
+rules:
+  - id: safe_git_reads_are_allowed
+    when:
+      actor: openhands
+      surface: git
+      intent: read
+    decision: allow
+
+  - id: secret_file_writes_are_denied
+    when:
+      actor: openhands
+      tool_glob: "*FileEditorTool"
+      target_glob: ["*.env", "*/.ssh/*", "*id_rsa*"]
+    decision: deny
+
+  - id: destructive_shell_is_denied
+    when:
+      actor: openhands
+      tool_glob: ["*TerminalTool", "*BashTool"]
+      arg_regex:
+        command:
+          - "(^|[;&|]\\s*|\\s)rm\\s+-rf\\b"
+          - "(^|[;&|]\\s*|\\s)git\\s+reset\\s+--hard\\b"
+          - "(^|[;&|]\\s*|\\s)git\\s+clean\\s+-fd\\b"
+    decision: deny
+
+  - id: git_push_requires_second_key
+    when:
+      actor: openhands
+      surface: git
+      arg_regex:
+        command: "(^|[;&|]\\s*|\\s)git\\s+push\\s+\\S+\\s+main(\\s|$)"
+    decision: ask
+
+  - id: non_view_file_edits_require_second_key
+    when:
+      actor: openhands
+      tool_glob: "*FileEditorTool"
+      arg_regex:
+        command: "^(create|str_replace|insert|undo_edit)$"
+    decision: ask
