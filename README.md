@@ -35,6 +35,17 @@ DualKey focuses on the missing layer:
 - evidence receipts
 - replay-ready event history
 
+## DualKey vs frameworks
+
+| Question | Agent frameworks / runtimes | DualKey |
+| --- | --- | --- |
+| What problem does it solve? | Planning, orchestration, tool execution, agent loops | Execution authorization for risky actions |
+| Does it replace the planner? | Yes, often | No |
+| Where does it sit? | Around the whole agent runtime | Between "agent decided" and "action runs" |
+| What does it decide? | What the agent should do next | Whether a concrete action is allowed, denied, or requires a second key |
+| Typical outputs | Tool calls, messages, state transitions | Deterministic policy decisions, approval prompts, signed receipts, replayable audit trails |
+| Best used when | You need an agent system | You already have an agent and need trust, governance, and evidence |
+
 ## Project docs
 
 - [LICENSE](./LICENSE)
@@ -43,6 +54,8 @@ DualKey focuses on the missing layer:
 - [SECURITY.md](./SECURITY.md)
 - [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
 - [RELEASING.md](./RELEASING.md)
+- [Latest release](https://github.com/wadeKeith/dualkey-agent/releases/latest)
+- [GitHub Discussions](https://github.com/wadeKeith/dualkey-agent/discussions)
 
 ## What the MVP ships
 

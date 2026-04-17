@@ -6,6 +6,10 @@ The format is based on Keep a Changelog and this project follows Semantic Versio
 
 ## [Unreleased]
 
+### Changed
+
+- README now includes a `DualKey vs frameworks` positioning table plus direct links to the latest release and GitHub Discussions.
+
 ## [0.1.1] - 2026-04-17
 
 ### Added
