@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dualkey-agent"
-version = "0.1.0"
+version = "0.1.1"
 description = "Approvals, deterministic policy, and signed receipts for AI agent actions."
 readme = "README.md"
 authors = [{name = "DualKey contributors"}]

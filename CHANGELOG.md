@@ -6,6 +6,8 @@ The format is based on Keep a Changelog and this project follows Semantic Versio
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-04-17
+
 ### Added
 
 - README badges and first-screen demo placeholders for the public repository.
